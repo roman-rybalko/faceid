@@ -1,0 +1,15 @@
+- hosts: all
+  gather_facts: False
+  environment:
+    DATA_SRV: "{{ lookup('env', 'DATA_SRV') }}"
+  tasks:
+    - script: setup-ic.sh
+      name: setup-ic.sh
+    - script: setup-srv-cli.sh 2>&1 | tee /tmp/work/setup.log
+      name: setup.sh
+    - script: download-srv-cli.sh 2>&1 | tee /tmp/work/download.log
+      name: download.sh
+    - shell: stat /tmp/work
+      name: check /tmp/work
+    - shell: stat /kaggle/input
+      name: check /kaggle/input

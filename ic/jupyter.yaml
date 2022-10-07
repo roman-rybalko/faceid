@@ -1,0 +1,7 @@
+- hosts: all
+  gather_facts: False
+  tasks:
+    - shell: mkdir -p /tmp/work
+      name: prepare
+    - shell: screen -ls jupyter || screen -S jupyter -d -m bash -c 'mkdir -p ~/work && ulimit -n 1048576 && jupyter lab --ip=0.0.0.0 --no-browser --notebook-dir=~/work 2>&1 | tee /tmp/work/jupyter.log'
+      name: start

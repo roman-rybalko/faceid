@@ -1,0 +1,11 @@
+- hosts: all
+  gather_facts: False
+  tasks:
+    - script: setup-ic.sh
+      name: setup-ic.sh
+    - script: setup.sh 2>&1 | tee /tmp/work/setup.log
+      name: setup.sh
+    - script: download.sh 2>&1 | tee /tmp/work/download.log
+      name: download.sh
+    - shell: stat /tmp/work
+    - shell: stat /kaggle/input

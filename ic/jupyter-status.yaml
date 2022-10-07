@@ -1,0 +1,10 @@
+- hosts: all
+  gather_facts: False
+  tasks:
+    - shell: screen -ls jupyter
+      name: check screen
+    - shell: grep -m 1 http://127.0.0.1:8888/lab /tmp/work/jupyter.log | sed -e 's~/127\.0\.0\.1:8888/~/{{ inventory_hostname }}:8888/~'
+      register: jupyter_url
+      name: find url
+    - debug: var=jupyter_url.stdout
+      name: url

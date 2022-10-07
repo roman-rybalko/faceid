@@ -1,0 +1,22 @@
+- hosts: all
+  gather_facts: False
+  vars:
+    nb: "{{ lookup('env', 'RUN_NB') }}"
+    wd: "{{ lookup('env', 'RUN_WD') }}"
+  environment:
+    MASTER_ADDR: '{{ dist_master_addr }}'
+    WORLD_SIZE: '{{ dist_world_size }}'
+    RANK: '{{ dist_rank }}'
+  tasks:
+    - copy:
+        src: '{{ item }}'
+        dest: '{{ wd }}/{{ item }}'
+        mode: 0755
+      name: copy
+      loop:
+        - run.sh
+        - run.py
+        - '{{ nb }}'
+    - shell: screen -ls run || screen -S run -d -m bash -c 'cd {{ wd }} && ./run.sh {{ nb }}'
+      when: dist_rank != 0
+      name: run
