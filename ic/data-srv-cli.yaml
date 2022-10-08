@@ -1,5 +1,4 @@
 - hosts: all
-  gather_facts: False
   environment:
     DATA_SRV: "{{ lookup('env', 'DATA_SRV') }}"
   tasks:

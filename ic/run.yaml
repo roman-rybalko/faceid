@@ -1,5 +1,4 @@
 - hosts: all
-  gather_facts: False
   vars:
     nb: "{{ lookup('env', 'RUN_NB') }}"
     wd: "{{ lookup('env', 'RUN_WD') }}"

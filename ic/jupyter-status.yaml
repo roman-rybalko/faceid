@@ -1,5 +1,4 @@
 - hosts: all
-  gather_facts: False
   tasks:
     - shell: screen -ls jupyter
       name: check screen
