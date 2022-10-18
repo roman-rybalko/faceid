@@ -1,29 +1,8 @@
 all:
   vars:
-    dist_master_addr: 176.99.135.88
-    dist_world_size: 8
+    dist_master_addr: 176.99.135.38
+    dist_world_size: 1
   hosts:
-    176.99.135.88:
-      ansible_host: 176.99.135.88
+    176.99.135.38:
+      ansible_host: 176.99.135.38
       dist_rank: 0
-    176.99.135.111:
-      ansible_host: 176.99.135.111
-      dist_rank: 1
-    176.99.135.61:
-      ansible_host: 176.99.135.61
-      dist_rank: 2
-    176.99.135.28:
-      ansible_host: 176.99.135.28
-      dist_rank: 3
-    176.99.135.123:
-      ansible_host: 176.99.135.123
-      dist_rank: 4
-    176.99.135.24:
-      ansible_host: 176.99.135.24
-      dist_rank: 5
-    176.99.135.95:
-      ansible_host: 176.99.135.95
-      dist_rank: 6
-    176.99.135.117:
-      ansible_host: 176.99.135.117
-      dist_rank: 7
