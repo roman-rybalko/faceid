@@ -9,7 +9,7 @@
       name: setup-torch.sh
     - script: setup.sh 2>&1 | tee /tmp/work/setup.log
       name: setup.sh
-    - script: download.sh 2>&1 | tee /tmp/work/download.log
-      name: download.sh
+#    - script: download.sh 2>&1 | tee /tmp/work/download.log
+#      name: download.sh
     - shell: stat /tmp/work
-    - shell: stat /kaggle/input
+#    - shell: stat /kaggle/input

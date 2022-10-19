@@ -1,8 +1,8 @@
 all:
   vars:
-    dist_master_addr: 176.99.135.38
+    dist_master_addr: 176.99.135.107
     dist_world_size: 1
   hosts:
-    176.99.135.38:
-      ansible_host: 176.99.135.38
+    176.99.135.107:
+      ansible_host: 176.99.135.107
       dist_rank: 0
